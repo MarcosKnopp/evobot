@@ -13,7 +13,10 @@ module.exports = {
   aliases: ["p"],
   description: i18n.__("play.description"),
   async execute(message, args) {
-    const { channel } = message.member.voice;
+    let { channel } = message.member.voice;
+    if(message.author.bot){
+      channel = args[1]
+    }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
