@@ -14,8 +14,10 @@ module.exports = {
   description: i18n.__("play.description"),
   async execute(message, args) {
     let { channel } = message.member.voice;
+    console.log(channel)
     if(message.author.bot){
       channel = args[1]
+      console.log(channel)
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
