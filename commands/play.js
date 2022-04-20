@@ -16,7 +16,12 @@ module.exports = {
     let { channel } = message.member.voice;
     console.log(channel)
     if(message.author.bot){
-      channel = args[1]
+      let canal = args[1]
+        console.log(canal)
+        canal = canal.replace("<#", "")
+        canal = canal.replace(">", "")
+        console.log(canal)
+        channel = message.guild.channels.cache.get(canal)
       console.log(channel)
     }
 
